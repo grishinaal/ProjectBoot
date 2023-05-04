@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Таблица пользователей</title>
+</head>
+<body bgcolor="#FFFFFF">
+
+<table class="italic">
+    <h1>Таблица пользователей</h1>
+    <tr border="1" bgcolor="#FFFFFF">
+        <th bgcolor="#FFFFFF"><h2>Id</h2></th>
+        <th><h2>ИМЯ</h2></th>
+        <th><h2>ФАМИЛИЯ</h2></th>
+        <th bgcolor="#F0F8FF">
+            <form action="/newUser">
+                <button><h3>Добавить пользователя</h3></button>
+            </form>
+        </th>
+    </tr>
+    <tr th:each="user : ${users}">
+        <th bgcolor="#FFFFFF"><a th:href="@{views/{id}(id=${user.getId()})}" th:utext="${user.getId()}"></a></th>
+        <th bgcolor="#FFFFFF" th:utext="${user.getName()}"><</th>
+        <th bgcolor="#FFFFFF" th:utext="${user.getLastName()}"></th>
+        <td bgcolor="#F0F8FF">
+
+            <form th:method="DELETE" th:action="@{{id}(id=${user.getId()})}">
+                <input type="submit" value="УДАЛИТЬ">
+            </form>
+            <a th:href="@{{id}/editUser(id=${user.getId()})}">
+
+                <button>РЕДАКТИРОВАТЬ</button>
+            </a>
+        </td>
+        <td>
+        </td>
+    </tr>
+    </h3>
+</table>
+</body>
+</html>

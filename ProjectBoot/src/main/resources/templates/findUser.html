@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Пользователь</title>
+</head>
+<body bgcolor="#FFFFFF">
+<h1>Найти пользователя</p></h1>
+<table class="italic">
+    <tr border="1" bgcolor="#FFFFFF">
+        <th bgcolor="#FFFFFF"><h2>Id</h2></th>
+        <th><h2>Имя</h2></th>
+        <th><h2>Фамилия</h2></th>
+    </tr>
+    <tr>
+        <h3>
+            <td bgcolor="#FFFFFF" th:text="${user.getId()}">ID</td>
+        </h3>
+        <h3>
+            <td bgcolor="#FFFFFF" th:text="${user.getName()}">Имя</td>
+        </h3>
+        <h3>
+            <td bgcolor="#FFFFFF" th:text="${user.getLastName()}">Фамилия</td>
+        </h3>
+
+    </tr>
+</table>
+<br>
+<form action="/">
+    <button>ПОЛЬЗОВАТЕЛЬ</button>
+</form>
+</body>
+</html>
