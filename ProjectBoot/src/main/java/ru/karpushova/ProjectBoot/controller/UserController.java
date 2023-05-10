@@ -36,7 +36,7 @@ public class UserController {
     }
 
     @PostMapping("/pages")
-    public String create(@ModelAttribute("user") User user) {
+    public String create(@ModelAttribute("user") User user) throws Exception {
         userService.saveUser(user);
         return "redirect:/all";
 
@@ -55,8 +55,18 @@ public class UserController {
     }
 
     @PatchMapping("/{id}")
-    public String update(@ModelAttribute("user") User user) {
+    public String update(@ModelAttribute("user") User user) throws Exception {
         userService.updateUser(user);
         return "redirect:/all";
+    }
+
+    @ExceptionHandler(Exception.class)
+    public String handleException(Exception ex, Model model) {
+        ex.printStackTrace(); // Можно вывести ошибку в лог
+
+        String errorMessage = ex.getMessage();
+        model.addAttribute("errorMessage", errorMessage);
+
+        return "error";
     }
 }

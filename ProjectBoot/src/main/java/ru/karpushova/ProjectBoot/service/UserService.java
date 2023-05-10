@@ -6,9 +6,9 @@ import ru.karpushova.ProjectBoot.model.User;
 import java.util.List;
 
 public interface UserService {
-    void saveUser(User user);
+    void saveUser(User user) throws Exception;
 
-    void updateUser(User updateUser);
+    void updateUser(User updateUser) throws Exception;
 
     void removeUserById(Long id);
 
